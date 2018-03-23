@@ -1,0 +1,53 @@
+<!--pages/order/refund/refund.wxml-->
+<view class="g-content">
+  <view class="m-refund-list">
+    <view class="m-refund-item">
+      <span class="m-refund-label">退款类型：</span>
+      <span class="m-refund-txt">
+        <span class="u-label-radio-group">
+          <label class="u-label-radio">
+            <span class="u-label u-label-outline u-label-lg">全额退款</span>
+          </label>
+          <label class="u-label-radio" style="display: none;">
+            <span class="u-label u-label-outline u-label-lg">部分退款</span>
+          </label>
+        </span>
+      </span>
+    </view>
+    <view class="m-refund-good" style="display: none;">
+      <view class="m-refund-good-title">选择需要退款的商品（多选）</view>
+    </view>
+    <view class="m-refund-item">
+      <span class="m-refund-label">退款金额：</span>
+      <span class="m-refund-txt f-text-danger">
+        00000
+      </span>
+      <view class="f-text-muted" style="display: none;">【退款金额=所选商品价格-平摊在对应商品的优惠金额】</view>
+    </view>
+    <view class="m-refund-item">
+      <view class="m-refund-label f-fl">退款原因：</view>
+      <view class="m-refund-txt  f-fl">
+        <view class="select_top u-form-control" bindtap="clickRefund">
+          <text class="select_text">{{selectRefund?selectRefund:"选择原因"}}</text>
+          <text class="phone_personal"></text>
+        </view>
+        <view class="select_result" hidden="{{showRefund}}">
+          <view class="select_one {{isTouch==1?'is_select':''}}" bindtap="mySelect" bindtouchstart="touchSelect" data-me="配送时间太长" data-id="1">配送时间太长</view>
+          <view class="select_one {{isTouch==2?'is_select':''}}" bindtap="mySelect" bindtouchstart="touchSelect" data-me="商品少送或错送" data-id="2">商品少送或错送</view>
+          <view class="select_one {{isTouch==3?'is_select':''}}" bindtap="mySelect" bindtouchstart="touchSelect" data-me="商品与预期不符" data-id="3">商品与预期不符</view>
+          <view class="select_one {{isTouch==4?'is_select':''}}" bindtap="mySelect" bindtouchstart="touchSelect" data-me="骑手提前点确认送达" data-id="4">骑手提前点确认送达</view>
+          <view class="select_one {{isTouch==5?'is_select':''}}" bindtap="mySelect" bindtouchstart="touchSelect" data-me="骑手送错订单" data-id="5">骑手送错订单</view>
+          <view class="select_one {{isTouch==6?'is_select':''}}" bindtap="mySelect" bindtouchstart="touchSelect" data-me="其他" data-id="6">其他</view>
+        </view>
+      </view>
+      <textarea maxlength="200" placeholder="请输入详细原因，便于商家了解情况" rows="3" class="u-form-control" bindinput="changeInput">
+      </textarea>
+    </view>
+  </view>
+</view>
+
+<view class="g-footer u-btn-box">
+  <button class="u-btn u-btn-primary u-btn-block">
+    <text>提交</text>
+  </button>
+</view>

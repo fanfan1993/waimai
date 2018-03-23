@@ -1,0 +1,49 @@
+/* 订单列表 */
+
+.m-order-item {
+  padding: 0.6rem 0.6rem;
+  background-color: #fff;
+  border-top: 1px solid #e6eaec;
+}
+
+.m-order-header {
+  margin-bottom: 0.1rem;
+  font-size: 0.8rem;
+}
+
+.m-order-good-attr-name, .m-order-good-num, .m-order-good-price,
+.m-order-good-title {
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.m-order-header .m-order-good-title {
+  margin-right: 0.3rem;
+  color: #1f2d3d;
+}
+
+.m-order-good-title {
+  max-width: 8rem;
+}
+
+.m-order-money {
+  font-size: 0.78rem;
+  color: #8492a6;
+}
+
+/* 再来一单 */
+.m-order-action .u-btn {
+  width: 4.2rem;
+  padding: 0;
+  text-align: center;
+  color: #179ff4;
+  background-color: transparent;
+  border: 1px solid #179ff4;
+  font-size: 0.72rem;
+  line-height: 1.38rem;
+  height: 1.38rem;
+  border-radius: 1.38rem;
+}

@@ -1,0 +1,60 @@
+<form bindsubmit="add">
+	<view class="item group-item">
+		<view class="caption">联系人：</view>
+		<view class="bd linkman">
+			<view class="input-container">
+				<input name="realname" value="{{address.realname}}" placeholder="请输入联系人姓名" />
+			</view>
+			<view class="input-container input-container-radio">
+				<radio-group name="gender" class="radio-group" bindchange="radioChange">
+					<label class="radio u-label-radio">
+						<radio  value="1"  checked="{{address.gender == 1 || !address.gender ? true : false}}" />
+            <span class="u-label u-label-outline u-label-lg u-label-round">先生</span>
+					</label>
+					<label class="radio u-label-radio">
+						<radio value="0" checked="{{address.gender == 0 ? true : false}}" />
+            <span class="u-label u-label-outline u-label-lg u-label-round">女士</span>
+					</label>
+				</radio-group>
+			</view>
+		</view>
+	</view>
+	<view class="item">
+		<view class="caption">手机号：</view>
+		<view class="bd">
+			<input type="number" name="mobile" value="{{address.mobile}}" placeholder="请输入手机号" />
+		</view>
+	</view>
+	<view class="item group-item">
+		<view class="caption">地址：</view>
+		<view class="bd">
+			<view class="input-container">
+				<input name="area" value="{{area || address.area}}" placeholder="小区/写字楼/学校等" bindfocus="selectAddress" />
+			</view>
+			<view class="input-container">
+				<input name="detail" value="{{address.detail}}" placeholder="详细地址（如门牌号等）" />
+			</view>
+		</view>
+	</view>
+
+  <view class="item group-item">
+		<view class="caption">标签：</view>
+		<view class="bd">
+			<view class="input-container input-container-radio">
+				<radio-group name="place" class="radio-group" bindchange="radioChange">
+				 <label class="radio" wx:for="{{items}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+        </label>
+				</radio-group>
+			</view>
+		</view>
+	</view>
+
+
+
+	<view class="buttons">
+		<!-- <button wx:if="{{isEdit}}" class="delete" bindtap="delete">删除</button> -->
+    <button  class="cancel" bindtap="cancel">取消</button>
+		<button form-type="submit" class="confirm">{{isEdit ? '修改' : '添加'}}</button>
+	</view>
+</form>

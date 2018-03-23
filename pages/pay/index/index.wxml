@@ -1,0 +1,33 @@
+<!--pages/pay/index/index.wxml-->
+<view class="g-content">
+  <view class="m-pay">
+    <view>支付剩余时间</view>
+    <view>
+      <text id="countdown" class="m-pay-time">00:30</text>
+    </view>
+  </view>
+  <view class="m-list">
+    <view class="m-list-item">
+      <view class="f-clearfix  pay-view">
+        <text class="m-list-label">支付金额</text>
+        <span class="f-fr f-text-danger">￥ 372.00</span>
+      </view>
+    </view>
+  </view>
+  <view class="m-list">
+    <view class="m-list-item">
+      <view class="f-clearfix pay-view">
+        <image class="m-list-icon" src="/images/icon/icon-weixin.png"></image>
+        <text class="m-list-label">微信支付</text>
+        <span class="f-fr">
+             <image class="u-radio" src="/images/icon/icon-radio-checked.png"></image>
+        </span>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="g-footer u-btn-box">
+  <button id="btn-pay" class="u-btn u-btn-primary u-btn-block">确定支付￥
+    <span class="pay_money">1372.00</span>
+  </button>
+</view>

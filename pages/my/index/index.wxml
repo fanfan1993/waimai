@@ -1,0 +1,54 @@
+<!-- 个人信息 -->
+<import src="../../../libs/toast/wetoast.wxml" />
+<!-- wetoast -->
+<template is="wetoast" data="{{...__wetoast__}}" />
+
+<view class="{{userInfo.nickName?'show':'none'}}" style='height:100%;overflow: hidden'>
+  <view class="user" bindtap='jumpTo' data-id="4"  style="background:url('/images/user/user-bg.jpg') no-repeat top center/100% auto">
+    <!-- <view class="avatar-container"> -->
+    <view class="m-user-left">
+      <image id="user-avatar" src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/images/index/avatar.jpg'}}" class="avatar" />
+    </view>
+
+    <!-- </view> -->
+    <view class='m-user-right'>
+      <view class="user_name">
+        {{userInfo.nickName ? userInfo.nickName : '金木'}}
+      </view>
+      <view class="user_phone">
+        {{phone ? phone : '18358588240'}}
+      </view>
+    </view>
+
+  </view>
+  <!-- 列表 -->
+  <view class="listview">
+    <view class="item">
+      <image class="hd" src="/images/user/user-order.png" />
+      <view class='bd' bindtap='jumpTo' data-id="1">我的订单</view>
+      <!-- <navigator class="bd" url="/pages/order/list/list" open-type="navigate" hover-class="none">我的订单</navigator> -->
+      <view class="ft"></view>
+    </view>
+    <view class="item">
+      <image class="hd" src="/images/user/user-discount.png" />
+      <view class='bd' bindtap='jumpTo' data-id="2">我的优惠券</view>
+      <!-- <navigator class="bd" url="/pages/coupon/coupon/coupon" open-type="navigate" hover-class="none">我的优惠券</navigator> -->
+      <view class="ft"></view>
+    </view>
+    <view class="item">
+      <image class="hd" src="/images/user/user-address.png" />
+      <view class='bd' bindtap='jumpTo' data-id="3">收货地址</view>
+      <!-- <navigator class="bd" url="/pages/address/list/list" open-type="navigate" hover-class="none">收货地址</navigator> -->
+      <view class="ft"></view>
+    </view>
+  </view>
+  <!-- 管理员 -->
+</view>
+<view class="no_user {{userInfo.nickName?'none':'show'}}">
+  如果您授权了用户信息，请刷新页面
+</view>
+
+<!-- 退出登录 -->
+<!-- <view class="logout" bindtap="logout">
+	退出登录
+</view> -->

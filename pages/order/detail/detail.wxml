@@ -1,0 +1,84 @@
+<!--pages/order/detail/detail.wxml-->
+<view class="m-order-detail">
+  <view class="m-order-detail-header" style=" background: url(/images/order/order-bg.jpg) top center/cover no-repeat;">
+    <view class="m-order-detail-status">订单关闭</view>
+    <p>订单关闭-未付款取消</p>
+    <view class="m-order-detail-action">
+      <navigator href="javascript:;" class="u-btn">再来一单</navigator>
+    </view>
+  </view>
+  <view class="m-order-detail-shop">
+    <navigator href="http://m.waimai.com/shop/index/38">李宁</navigator>
+  </view>
+  <view class="m-order-detail-body">
+    <view class="m-order-block">
+      <span class="f-fl">
+        <span class="m-order-good-title">蓝染真他妈帅</span>
+        <span class="m-order-good-attr-name">红色</span>
+      </span>
+      <span class="f-fr">
+        <span class="m-order-good-num f-text-muted">x
+          <span>1</span>
+        </span>
+        <span class="m-order-good-price">
+          ￥ <span>100.00</span>
+        </span>
+      </span>
+    </view>
+    <view class="m-order-block">
+      <span class="f-fl">餐盒费</span>
+      <span class="f-fr">￥
+        <span>10.00</span>
+      </span>
+    </view>
+    <view class="m-order-block">
+      <span class="f-fl">配送费</span>
+      <span class="f-fr">￥
+        <span>0.00</span>
+      </span>
+    </view>
+    <view class="m-order-block">
+      <navigator href="tel:18358588320" class="f-fl" style="color:#179ff4;">
+        <span class="u-icon icon-contact" style="margin-right: 0.25rem;color:#179ff4;"></span>联系商家</navigator>
+      <span class="f-fr">实付
+        <span class="f-text-danger" style="font-size: 0.9rem;color: #f96668;">￥
+          <span>110.00</span>
+        </span>
+      </span>
+    </view>
+    <view class="m-order-block">
+      <view class="m-order-block-title">配送信息</view>
+      <view class="f-clearfix">
+        <span class="f-fl">送达时间</span>
+        <span class="f-text-muted f-fr">2017-11-27 16:02:49</span>
+      </view>
+      <view class="f-clearfix">
+        <span class="f-fl">收货地址</span>
+        <span class="f-text-muted f-fr f-text-right">
+          <span class="m-order-detail-delivery-address">高新文教区大时代</span>
+          <span>一休</span>
+          <span>13732283426</span>
+        </span>
+      </view>
+      <view class="f-clearfix">
+        <span class="f-fl">配送方式</span>
+        <span class="f-text-muted f-fr">达达配送</span>
+      </view>
+    </view>
+    <view class="m-order-block">
+      <view class="m-order-block-title">订单信息</view>
+      <view class="f-clearfix">
+        <span class="f-fl">订单编号</span>
+        <span class="f-text-muted f-fr">17112716023083</span>
+      </view>
+      <view class="f-clearfix">
+        <span class="f-fl">支付方式</span>
+        <span class="f-text-muted f-fr">微信支付</span>
+      </view>
+      <view class="f-clearfix">
+        <span class="f-fl">下单时间</span>
+        <span class="f-text-muted f-fr">2017-11-27 16:02:07</span>
+      </view>
+    </view>
+  </view>
+</view>

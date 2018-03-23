@@ -1,0 +1,45 @@
+/* pages/address/choose/choose.wxss */
+.m-address-item.has-select {
+    padding-left: 2.2rem;
+}
+.m-address-item.has-action {
+    padding-right: 5rem;
+}
+.m-address-item {
+    position: relative;
+    padding: 20rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+/* 地址选择*/
+.m-address-select {
+  position: absolute;
+  left: 20rpx;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.m-address-info {
+    font-size: 31rpx;
+    color: #1f2d3d;
+    overflow: hidden;
+}
+.m-address-user {
+    margin-top: 10rpx;
+    font-size: 28rpx;
+}
+/* 右边编辑 */
+.m-address-action {
+    position: absolute;
+    right: 12rpx;
+    bottom: 22rpx;
+}
+.m-address-action .deit-img-out{
+  width: 40rpx;
+  height: 40rpx;
+  padding: 15rpx;
+}
+.m-address-action .deit-img-out image{
+  width: 34rpx;
+  height: 33rpx;
+}

@@ -1,0 +1,78 @@
+/* pages/shop/info/info.wxss */
+/* 头部 */
+page{
+  background-color: #f5f8fa;
+}
+.m-shop-header  .m-shop-mask{
+    padding: 20rpx;
+    text-align: center;
+}
+.m-shop-logo, .m-shop-pic {
+    width: 170rpx;
+    height:170rpx;
+    border-radius: 10rpx;
+}
+.m-shop-name {
+    margin-top: 10rpx;
+    font-size: 32rpx;
+}
+.m-shop-volume {
+    font-size: 26rpx;
+}
+/* 公告 */
+.m-shop-block {
+    font-size: 26rpx;
+    background-color: #fff;
+    overflow: hidden;
+    padding: 20rpx;
+}
+.m-shop-block .f-text-center{
+  margin-top: 15rpx;
+  text-align: center;
+}
+.m-shop-pic+.m-shop-pic {
+    margin-left: 15rpx;
+}
+/* 3个模块 */
+.m-shop-block+.m-shop-block {
+    margin-top: 20rpx;
+}
+.m-shop-nav-label {
+    font-size: 30rpx;
+    color: #1f2c3c;
+}
+.u-icon{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 15rpx 0;
+}
+.m-shop-block-title {
+    margin-bottom: 20rpx;
+    font-size: 32rpx;
+    color: #1f2d3d;
+}
+.m-shop-block .u-label {
+    margin-right: 10rpx;
+}
+.m-shop-block view+view {
+    margin-top: 20rpx;
+}
+.f-text-muted {
+    color: #99a9bf;
+}
+.f-text-muted .f-time{
+   margin-top: 8rpx;
+}
+.m-order-detail-delivery-address {
+    display: inline-block;
+    width: 15rem;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
+.m-shop-block .delivery-address{
+    margin-top: 4rpx;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}

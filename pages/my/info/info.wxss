@@ -1,0 +1,69 @@
+/* pages/my/info/info.wxss */
+
+page {
+  background-color: #efeff4;
+}
+
+.panel__table__view {
+  background-color: #fff;
+}
+
+.m-list-item.has-arrow image {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.85rem;
+  border-radius: 0.18rem;
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+}
+
+.m-list-item.has-arrow {
+  position: relative;
+  display: block;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  color: #1f2d3d;
+  line-height: 1.44rem;
+}
+.m-list-item.has-arrow .line{
+ display: block;
+ position: absolute;
+ top:2.62rem;
+ width: 94%;
+ z-index: 6;
+ border-bottom: 0.01rem solid #efeff4;
+}
+
+.m-list-item.has-arrow .m-list-info {
+  right: 1.45rem;
+  padding-left: 2rem;
+}
+.m-list-item.has-arrow input{
+  text-align: right;
+}
+.m-list-info {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  font-size: 0.84rem;
+  color: #475669;
+}
+
+/* 箭头 */
+
+.m-list-item.has-arrow::after {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #8492a6;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 50%;
+  margin-top: -10rpx;
+  right: 30rpx;
+}

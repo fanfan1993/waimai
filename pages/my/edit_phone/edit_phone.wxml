@@ -1,0 +1,22 @@
+<!--pages/my/edit_phone/edit_phone.wxml-->
+<form bindsubmit="phone_Code">
+  <view class="u-title-box">填写有效手机号</view>
+	<view class="item">
+		<view class="caption">手机号：</view>
+		<view class="bd">
+			<input type="number" name="mobile" value="{{user.mobile}}" bindblur="bindPhone" placeholder="请输入您的手机号" />
+		</view>
+	</view>
+	<view class="item">
+		<view class="caption">验证码：</view>
+		<view class="bd">
+				<input name="code" value="{{user.code}}" placeholder="请输入验证码" />
+        <span class="btn-get-code {{is_show?'show':'none'}}" bindtap="getCode">获取验证码</span>
+        <span class="btn-get-code {{is_show?'none':'show'}}" >{{last_time }}s后重发</span>
+		</view>
+	</view>
+
+	<view class="buttons">
+		<button form-type="submit" class="confirm">确定</button>
+	</view>
+</form>

@@ -1,0 +1,27 @@
+/* pages/order/detail/detail.wxss */
+
+/* 头部 */
+.m-order-detail-header {
+  padding: 0.9rem 0.6rem;
+  font-size: 0.78rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.m-order-detail-action {
+  margin-top: 0.6rem;
+}
+
+.u-btn {
+  display: inline-block;
+  height: 1.98rem;
+  padding-left: 0.78rem;
+  padding-right: 0.78rem;
+  font-size: 0.9rem;
+  color: #179ff4;
+  line-height: 1.98rem;
+  border: none;
+  border-radius: 0.24rem;
+  background-color: #fff;
+}

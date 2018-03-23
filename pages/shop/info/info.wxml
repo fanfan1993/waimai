@@ -1,0 +1,69 @@
+<!--pages/shop/info/info.wxml-->
+<view class="g-content" id="shopInfo">
+  <view class="m-shop-header" style="background: url('/images/shop/head.jpg') center center / 100% no-repeat;">
+    <view class="m-shop-mask">
+      <image class="m-shop-logo" src="/images/shop/head.jpg"></image>
+      <view class="m-shop-name">可爱的女孩</view>
+      <view class="m-shop-volume">月销0单</view>
+    </view>
+  </view>
+  <view class="m-shop-block">
+    <view>【公告】杭州的美食都没有我好吃</view>
+    <view class="f-text-center">
+      <image class="m-shop-pic" src="http://oydp172vs.bkt.clouddn.com/wsc_goods/1509345336437_6296.jpg"></image>
+      <image class="m-shop-pic" src="http://oydp172vs.bkt.clouddn.com/wsc_goods/1509345338954_2206.jpg"></image>
+    </view>
+  </view>
+  <view class="m-shop-block">
+    <view class="m-shop-nav g-flex">
+      <view class="m-shop-nav-item g-flex-item" bindtap='backToShop' style='margin-top:20rpx;'>
+        <image class="u-icon icon-waimai" src="/images/shop/outFood.png"></image>
+        <view class="m-shop-nav-label">点外卖</view>
+      </view>
+      <view class="m-shop-nav-item g-flex-item" href="tel:18258283897">
+        <image class="u-icon icon-contact" src="/images/shop/phone.png"></image>
+        <view class="m-shop-nav-label">联系商家</view>
+      </view>
+      <view bindtap='junpToUser'  class="m-shop-nav-item g-flex-item">
+        <image class="u-icon icon-order" src="/images/shop/order.png"></image>
+        <view class="m-shop-nav-label">个人中心</view>
+      </view>
+    </view>
+  </view>
+  <view class="m-shop-block">
+    <view class="m-shop-block-title">配送信息</view>
+    <view>
+      <span class="u-label u-label-primary">达达配送</span> 约30分钟，距离5.00km
+    </view>
+    <view>配送费 ¥3.00</view>
+  </view>
+  <view class="m-shop-block" id="shop_activity">
+    <view class="m-shop-block-title">商家活动</view>
+    <view id="activity_view" class="activity_view">
+      <span class="u-label u-label-danger">减</span>满100减10, 满200减40 </view>
+    <view>
+      <span class="u-label u-label-success">新</span>门店新客立减6元</view>
+  </view>
+  <view class="m-shop-block">
+    <view class="m-shop-block-title">商家信息</view>
+    <view class="f-clearfix">
+      <span class="f-fl">营业时间</span>
+      <view class="f-text-muted f-fr">
+        <view class='f-time'>05:00 - 10:00</view>
+        <view class='f-time'>11:00 - 15:00</view>
+        <view class='f-time'>16:00 - 21:00</view>
+      </view>
+    </view>
+    <view class="f-clearfix">
+      <span class="f-fl">商家电话</span>
+      <span class="f-text-muted f-fr">18258283897</span>
+    </view>
+    <view class="f-clearfix">
+      <span class="f-fl">商家地址</span>
+      <span class="f-text-muted f-fr f-text-right">浙江省杭州市西湖区</span>
+    </view>
+    <view class="f-clearfix delivery-address">
+      <span class="f-text-muted f-fr f-text-right">郡原公元里</span>
+    </view>
+  </view>
+</view>

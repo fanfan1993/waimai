@@ -1,0 +1,60 @@
+/* pages/pay/index/index.wxss */
+
+.m-pay {
+  padding: 60rpx 22rpx;
+  margin-bottom: 22rpx;
+  font-size: 28rpx;
+  text-align: center;
+  background-color: #fff;
+}
+
+.m-pay .m-pay-time {
+  font-size: 40rpx;
+  color: #1f2d3d;
+}
+
+/* 支付金 */
+
+.m-list+.m-list {
+  margin-top: 0.6rem;
+}
+
+.m-list {
+  background-color: #fff;
+}
+
+.m-list-item>.pay-view {
+  position: relative;
+  display: block;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  color: #1f2d3d;
+  line-height: 1.44rem;
+}
+
+.m-list-label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.m-list-icon {
+  width: 1.44rem;
+  height: 1.44rem;
+  margin-right: 0.45rem;
+  vertical-align: middle;
+}
+
+.u-radio {
+  display: block;
+  width: 1.08rem;
+  height: 1.08rem;
+  background-position: center center;
+  background-size: 100% 100%;
+  margin-top: 0.3rem;
+}
+
+/* 底部 */
+
+.g-footer .u-btn-box, .g-footer.u-btn-box {
+  padding: 0.4rem 0.6rem;
+}

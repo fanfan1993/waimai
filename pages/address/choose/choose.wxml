@@ -1,0 +1,64 @@
+<!--pages/address/choose/choose.wxml-->
+<scroll-view class="g-content">
+  <view id="address-list" class="m-address-list">
+    <view class="m-address-item has-action has-select" bindchange="chooseAddress">
+      <view>
+        <view class="m-address-select">
+          <radio-group name="gender" class="radio-group" bindchange="radioCouponChange">
+            <label class="radio u-label-radio">
+              <radio value="0" />
+            </label>
+          </radio-group>
+        </view>
+        <view class="m-address-info"> 城西银泰城一楼大货厅 </view>
+        <view class="m-address-user">老街 13732252017</view>
+        <view class="m-address-action">
+          <view class="deit-img-out">
+            <image src="/images/address/edit.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+     <view class="m-address-item has-action has-select" bindchange="chooseAddress">
+      <view>
+        <view class="m-address-select">
+          <radio-group name="gender" class="radio-group" bindchange="radioCouponChange">
+            <label class="radio u-label-radio">
+              <radio value="0" />
+            </label>
+          </radio-group>
+        </view>
+        <view class="m-address-info"> 城西银泰城一楼大货厅 </view>
+        <view class="m-address-user">老街 13732252017</view>
+        <view class="m-address-action">
+          <view class="deit-img-out">
+            <image src="/images/address/edit.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style="padding: .6rem; margin-top: .45rem; font-size: .84rem;">以下地址超出配送范围</view>
+    <view class="m-address-item has-action">
+      <view>
+        <view class="m-address-info" style="opacity: .5;"> 高新文教区大时代 </view>
+        <view class="m-address-user" style="opacity: .5;">一休 13732283426</view>
+        <view class="m-address-action">
+          <view class="deit-img-out">
+            <image src="/images/address/edit.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+     <view class="m-address-item has-action">
+      <view>
+        <view class="m-address-info" style="opacity: .5;"> 高新文教区大时代 </view>
+        <view class="m-address-user" style="opacity: .5;">一休 13732283426</view>
+        <view class="m-address-action">
+          <view class="deit-img-out">
+            <image src="/images/address/edit.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

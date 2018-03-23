@@ -1,0 +1,67 @@
+<!--pages/home/home/home.wxml-->
+<import src="../../../libs/toast/wetoast.wxml" />
+<!-- wetoast -->
+<template is="wetoast" data="{{...__wetoast__}}" />
+
+
+<block wx:if="{{hasUserInfo}}">
+
+  <!-- 地址选择 -->
+  <view class='listview'>
+    <!-- 头部导航 -->
+    <view class="choose-shop" bindtap='choose_address' id="poi-name" hover-class="none">
+      <image class="hd" src="/images/index/location.png" />
+      <text class='bd' bindfocus="selectAddress">{{location.area}}</text>
+    </view>
+    <view class="ft"></view>
+
+  </view>
+  <!-- 店铺 -->
+  <scroll-view bindscrolltolower="lower" class="scroll-restaurants-list" scroll-y="true" style="height:100%;background-color: #f5f8fa;">
+    <view class="header-title"></view>
+    <template data="{{selected,sortSelected}}" />
+    <view class="restaurantsList">
+      <block wx:for="{{restaurant}}" wx:key="">
+        <view bindtap='jumpShop' data-index="{{index}}">
+          <view class="restaurants-list">
+            <view class="restaurants-info-image">
+              <image src="{{item.src}}" class="restaurants-image" />
+            </view>
+            <view class="g-flex-item">
+              <view class="restaurants-info">
+                <view class="restaurants-info-name">{{item.name}}</view>
+                <view class="restaurants-info-rating">
+                  <!-- <view class="restaurants-info-rating-stars">★ ★ ★ ★</view> -->
+                  <!-- <view class="restaurants-info-rating-sales">月售 {{item.sales}}单</view> -->
+                  <view class="restaurants-info-deliver">蜂鸟配送 约{{item.time}}分钟</view>
+                </view>
+                <view class="restaurants-info-price">
+                  <image class="restaurants-address-image " src="/images/address/address.png" />
+                  <!-- 起送 ¥{{item.initial_price}} | 配送 ¥{{item.distribution_price}} -->
+                  <text class="address-text ">{{item.address}}</text>
+                    <text class="restaurants-distribution-distance f-fr">{{item.distance}}</text>
+                </view>
+              </view>
+              
+              <!-- 活动 -->
+              <view class="m-shop-activity">
+                <view >
+                  <span class="u-label u-label-danger">减</span> 100减10， 200减40 </view>
+                <view style='margin-top:15rpx;'>
+                  <span class="u-label u-label-success">新</span> 门店新客立减6元 </view>
+              </view>
+            </view>
+
+
+
+
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+
+</block>
+<block wx:else>
+  <view class="no_user">您未授权了用户信息，将无法正常使用小程序</view>
+</block>

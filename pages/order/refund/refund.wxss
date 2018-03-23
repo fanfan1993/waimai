@@ -1,0 +1,81 @@
+/* pages/order/refund/refund.wxss */
+  /* 解决ios下键盘弹起时fixed问题 */
+  .g-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+.m-refund-item {
+    padding: .6rem;
+    margin-bottom: .45rem;
+    font-size: 28rpx;
+    background-color: #fff;
+}
+u-label-radio, .u-radio {
+    position: relative;
+    display: inline-block;
+}
+label-outline, .u-label-radio>.u-label-outline {
+    color: #179ff4;
+    background-color: transparent;
+    border-color: #179ff4;
+}
+.u-label-lg {
+    padding: .3rem .6rem;
+    font-size: 28rpx;
+    border-radius: .24rem;
+}
+/* //输入款 */
+.m-refund-item textarea.u-form-control {
+    width: 95%;
+    padding: .3rem;
+    margin-top: 2.1rem;
+    background-color: #f5f8fa;
+    height: 80rpx;
+}
+select.u-form-control, .m-refund-item textarea.u-form-control {
+    border: 1px solid #eee;
+    border-radius: .15rem;
+}
+
+/* 底部 */
+.g-footer .u-btn-box, .g-footer.u-btn-box {
+  padding: 0.6rem 0.6rem 0 0.6rem;
+}
+
+
+/* //下拉选择 */
+.select_top{
+  position: relative;
+  width:340rpx;
+  height:50rpx;
+  line-height:48rpx;
+  border-radius: 10rpx;
+  border:2rpx solid #eee;
+}
+.select_top .select_text{
+  padding-left: 1rem;
+}
+.select_result{
+  margin-top:0;
+  z-index: 100;
+  position: absolute; 
+  border:2rpx solid #c7a055;
+
+}
+.select_one{
+  padding-left: 1rem;
+  text-align: left;
+  background-color:#fff;
+  width:300rpx;  
+  height:60rpx;
+  line-height:60rpx;
+}
+.is_select{
+  background: #ade1f5;
+  color:#fff;
+}

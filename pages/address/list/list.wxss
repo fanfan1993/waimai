@@ -1,0 +1,184 @@
+page {
+  background-color: #f5f8fa;
+}
+
+.no_list {
+  display: block;
+}
+
+.has_list {
+  display: none;
+}
+
+.no_address {
+  width: 5.8rem;
+  height: 5.8rem;
+  margin: 0px auto;
+  display: block;
+}
+
+/*地址列表*/
+
+.listview {
+  padding-bottom: 44px;
+}
+
+/*每一项*/
+
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+  background: white;
+  margin-left: 0;
+  line-height: initial;
+  margin-bottom: 0.35rem;
+}
+
+/*主体内容*/
+
+.item .bd {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/*收件人信息*/
+
+.item .bd .receiver {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin: 0.4rem 0;
+  margin-left: 10px;
+}
+
+.item .bd .info {
+  color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+/*地点*/
+
+.item .bd .receiver .firstname {
+  font-size: 0.82rem;
+  padding-left: 0.2rem;
+  line-height: 1.12rem;
+}
+
+/*标签*/
+
+.item .bd .receiver .place {
+  padding: 0.2rem 0.5rem;
+  color: #fff;
+  background-color: #179ff4;
+  border-color: #179ff4;
+  border-radius: 1rem;
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+/*性别*/
+
+.item .bd .info .gender {
+  font-size: 0.72rem;
+  margin: 0 5px;
+  line-height: 1.38rem;
+}
+
+/*手机号码*/
+
+.item .bd .info .mobile {
+  font-size: 0.72rem;
+  line-height: 1.38rem;
+}
+
+/*设置默认*/
+
+.item .bd .info .setting {
+  color: #475669;
+  background-color: transparent;
+  border: 1px solid #eee;
+  border-radius: 1.38rem;
+  height: 1.38rem;
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+  font-size: 0.72rem;
+  line-height: 1.38rem;
+  margin-left: 0.3rem;
+}
+
+.item .bd .info .setting_defalut {
+  color: #f96668;
+  height: 1.38rem;
+  font-size: 0.72rem;
+  line-height: 1.38rem;
+  margin-left: 0.3rem;
+}
+
+/*收件地址*/
+
+.item .bd .detail {
+  color: #999;
+  font-size: 14px;
+  margin: 5px 0;
+  margin-left: 10px;
+}
+
+/*编辑图标*/
+.m-address-action {
+    position: relative;
+    right: .6rem;
+    bottom: -.9rem;
+    font-size: 1.2rem;
+    }
+.item .ft {
+  width: 1rem;
+  height: 0.9rem;
+  margin: 10px;
+}
+/*.地址列表*/
+
+/*底部添加地址*/
+
+.add-address {
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.add-address .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.add-address .caption {
+  font-size: 14px;
+  color: #fff;
+  background-color: #179ff4;
+  font-weight: bold;
+  margin-left: 5px;
+  display: flex;
+  flex: 1;
+  margin: 0 10px;
+  justify-content: center;
+}
+
+/*.底部添加地址*/

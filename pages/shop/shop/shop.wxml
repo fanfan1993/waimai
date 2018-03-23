@@ -1,0 +1,377 @@
+<import src="../../../libs/toast/wetoast.wxml" />
+<!-- wetoast -->
+<template is="wetoast" data="{{...__wetoast__}}" />
+<view class="container">
+  <view class="choose-shop" bindtap="jumpToShop" data-id="{{shop_id}}" class="header g-flex {{scrollDown?'hidden':''}} {{shop.activity.length>0&&scrollDown?'moreHidden':''}}">
+    <view class="store-detail-bottom" style="background: url('/images/shop/head.jpg') center center / cover no-repeat;"></view>
+    <view class="store-detail-box g-flex">
+      <view class="store-detail-logo">
+        <image class="logo" src="/images/shop/head.jpg" />
+      </view>
+      <view class="store-detail-info g-flex-item">
+        <view class="name">{{shop.name}}
+          <text class="u-icon icon-more"></text>
+        </view>
+        <view class="f-ellipsis" style="width: 15rem;">公告：{{shop.desc}}</view>
+        <view>
+          <span class="u-label u-label-primary">达达配送.约
+            <text id="">{{shop.carry_time}}</text>分钟</span>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 活动 -->
+  <block wx:if="{{shop.activity.length>0}}">
+    <view class="m-shop-activity-item">
+      <view class="f-clearfix" bindtap='toggleActivity'>
+        <span class="f-fl">
+          <block wx:if="{{shop.activity[0].full_dec}}">
+            <span class="u-label u-label-danger">减</span>
+            <block wx:for="{{shop.activity[0].decArr}}" wx:key="">
+              <text style='padding-left:15rpx'>满{{item.full_price}}减{{item.dec_price}}</text>
+            </block>
+          </block>
+        </span>
+        <span class="act">
+          <text style='padding-right:15rpx'>{{shop.activity.length}}个活动</text>
+          <block wx:if="{{shop.activity.length>1}}">
+            <text class="triangle-down {{showMoreActivity?'':'triangle-up'}} f-fr"></text>
+          </block>
+          <block wx:else>
+            <text></text>
+          </block>
+        </span>
+      </view>
+      <view class="m-shop-activity-more {{showMoreActivity?'none':'show'}}">
+        <view class="f-clearfix">
+          <span class="f-fl">
+            <block wx:if="{{shop.activity[1].full_dec}}">
+            </block>
+            <block wx:else>
+              <span class="u-label u-label-success">新</span>
+              <span style='padding-left:10rpx'> 新用户下单立减{{shop.activity[1].new_dec_price}}元</span>
+            </block>
+          </span>
+
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+  <view class="swiper-header">
+    <block wx:for="{{swiperTitle}}" wx:key="">
+      <view class="title m-nav-item " data-index="{{index}}" id="{{item.id}}" data-id="{{item.id}}" bindtap="turnPage">
+        <text class="name_text {{index==currentPage?'selected':''}}">{{item.text}}</text>
+      </view>
+    </block>
+  </view>
+
+  <!-- 点击切换商品和评价 -->
+  <view class="goodpage {{tabArr.curBdIndex=='1'? 'show' : 'none'}}">
+    <view class="content-container">
+      <scroll-view class="classify-container" scroll-y="true">
+        <view class="classify {{classifySeleted==classify.id?'active':''}}" wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="tapClassify">
+          <view class="name">{{classify.classifyName}}</view>
+        </view>
+      </scroll-view>
+      <scroll-view class="goods-container" scroll-y="true" scroll-into-view="{{classifyViewed}}" bindscroll="onGoodsScroll">
+        <view wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" id="{{classify.id}}">
+          <view class="title">{{classify.classifyName}}</view>
+          <block wx:for="{{classify.item}}" wx:key="">
+            <view class="goods" data-id="{{item.id}}" data-sku="{{item.sku_list}}" data-name="{{item.name}}" bindtap='showGoodDetail' data-sold="{{item.sold}}">
+              <image class="pic" src="{{item.pic}}"></image>
+              <view class="name ellipsis">{{item.name}}</view>
+              <view class="sold">
+              <span> 月售{{item.sold}}</span> 
+                <!-- 满减和折扣活动 -->
+                 <block wx:if="{{item.promo_limit_buy>1}}" >
+                   <span class="setting-label f-fr">
+                     <block wx:if="{{item.promo_setting.discount_name=='打折'}}" >
+                       <span class="first">{{item.promo_setting.dec_input*10}}折</span>
+                     </block>
+                     <block wx:else >
+                       <span class="first">满减</span>
+                      </block>
+                     <span class="second">限购{{item.promo_limit_buy}}份</span>
+                   </span>   
+                   </block>
+              </view>
+              <view class="description">{{item.sold}}</view>
+              <view class="price">￥{{item.sku_list[0].sale_price}}</view>
+              <view class="food-numb ">
+                <view class="u-food {{item.sku_type==0?'show':'none'}}">
+                  <view class="remove f-fl" catchtap="tapReduceCart" hidden="{{item.sku_list[0].num==0}}" data-index="{{index}}" data-name="{{classify.id}}" data-id="{{item.id}}" data-attr_ids="{{item.sku_list[0].attr_ids}}">
+                    <text class="u-cart-reduce"></text>
+                  </view>
+                  <text class="text f-fl" hidden="{{item.sku_list[0].num==0}}">{{item.sku_list[0].num}}</text>
+                  <view class="add f-fr" data-index="{{index}}" catchtap="tapAddCart" data-id="{{id}}" data-id="{{item.id}}" data-name="{{classify.id}}" data-attr_ids="{{item.sku_list[0].attr_ids}}">
+                    <text class="u-cart-add"></text>
+                  </view>
+                </view>
+                <view class="cart-sku {{item.sku_type==0?'none':'show'}}" catchtap='chooseSku' data-id="{{item.id}}" data-sku="{{item.sku_list}}" data-name="{{item.name}}">
+                  <text class="cart-icon-number" style="display: none;">2</text> 规格
+                </view>
+              </view>
+            </view>
+          </block>
+
+        </view>
+      </scroll-view>
+    </view>
+    <!-- 底部购物车列表 -->
+    <view class="cart-detail" hidden="{{!showCartDetail||!cart.count}}">
+      <view class="mask" bindtap="hideCartDetail"></view>
+      <view class="list">
+        <view class="m-order-block" style="background-color: rgb(245, 248, 250);">
+          <text class="f-fl">已选商品</text>
+          <text class="f-fr" bindtap="hideCartDetail">
+            <text class="u-icon icon-delete"></text> 清空</text>
+        </view>
+
+        <view wx:for="{{allGood}}" wx:for-index="id" wx:for-item="list" wx:key="">
+          <block wx:for="{{list.sku_list}}" wx:for-item="item" wx:key="" id="{{sku.id}}">
+            <view class="m-order-block" hidden="{{item.num==0}}">
+              <text class="m-order-good-title f-fl">
+                <text>{{item.name}}</text>
+              <text class="f-text-muted">{{item.attr_names}}</text>
+              </text>
+              <text class="m-order-good-price f-fl">
+                <!-- 如果是打折或者满减 -->
+                <block wx:if="{{list.promo_limit_buy>1}}">
+                     <block wx:if="{{list.promo_setting.discount_name=='打折'}}" >
+                        <text class="f-text-danger" >￥{{item.sale_price*list.promo_setting.dec_input}}</text>
+                        <text class="f-text-muted price_dec">￥{{item.sale_price}}</text>
+                     </block>
+                     <block wx:else >
+                        <text class="f-text-danger" >￥{{item.sale_price-list.promo_setting.dec_input}}</text>
+                        <text class="f-text-muted price_dec">￥{{item.sale_price}}</text>
+                      </block>
+                   <text >限购{{list.promo_limit_buy}}件</text>
+                </block>
+                <block wx:else >
+                   <text class="f-text-danger" >￥{{item.sale_price}}</text>
+                </block>
+              </text>
+              <view class="u-cart-ctrl f-fr">
+                <view class="remove" data-name="{{item.name}}" bindtap="tapReduceCart" data-id="{{list.id}}" data-attr_ids="{{item.attr_ids}}">
+                  <text class="u-cart-reduce"></text>
+                </view>
+                <text class="u-cart-num">{{item.num}}</text>
+                <view class="add" data-name="{{item.name}}" data-index="{{index}}" bindtap="tapAddCart" data-id="{{list.id}}" data-attr_ids="{{item.attr_ids}}">
+                  <text class="u-cart-add"></text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+        <!-- 餐盒费 -->
+        <view class="m-order-block">
+          <text class="f-fl">
+            <text class="m-shop-good-title">餐盒费</text>
+          </text>
+          <span class="f-fr">
+            <span class="m-shop-good-price f-text-danger">￥
+              <text>32.00</text>
+            </span>
+          </span>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部购物车 -->
+    <view class="cart">
+      <view class="data" bindtap="showCartDetail">
+        <view class="icon">
+          <view class="cart-icon {{cart.count>0?'active':''}}">
+            <image src="/images/shop/cart.png"></image>
+            <view class="count">{{cart.count}}</view>
+          </view>
+        </view>
+        <view class="total">￥{{cart.total}}</view>
+        <view class="full_price {{cart.total>=shop.full_price?'show':'none'}}">以满{{shop.full_price}}元，免配送费</view>
+        <view class="full_price {{cart.total<shop.full_price?'show':'none'}}">满{{shop.stat_price}}元起送</view>
+      </view>
+      <form bindsubmit="submit" report-submit="true">
+        <!--<view formType="submit" class="submit">去结算</view>-->
+        <button class="yellow {{cart.total>shop.stat_price?'none':'disabled show'}}" formType="submit" disabled>去结算</button>
+        <button class="yellow {{cart.total>=shop.stat_price?'show':'disabled none'}}" formType="submit">去结算</button>
+      </form>
+    </view>
+
+    <!-- 多规格选择弹框 -->
+    <view class="cart-detail" hidden="{{!showSkuDetail}}">
+      <view class="mask" bindtap="hideSkuDetail"></view>
+      <block wx:for="{{sku}}" wx:key="" id="{{sku.id}}">
+        <view class="cart-modal" style="display: block;">
+          <view class="title">
+            <text class="f-toe" style="width: 90%; display: inline-block;">{{sku.title}}</text>
+            <image class="cart-close f-fr" bindtap="hideSkuDetail" style="background: url('/images/shop/close.png') center center / cover no-repeat;"></image>
+          </view>
+          <view class="cart-popup-content">
+            <view class="title">选规格</view>
+            <!-- 多规格的列表 -->
+            <block wx:for="{{sku.sku_list}}" wx:for-item="item" wx:key="index" id="{{item.id}}" attr_ids="{{item.attr_ids}}">
+              <view class="cart-popup-spec {{item.is_active?'active':''}}" bindtap='changeSku' data-index="{{index}}" data-attr_ids="{{item.attr_ids}}">{{item.attr_names}}</view>
+            </block>
+          </view>
+          <block wx:for="{{sku.sku_list}}" wx:for-item="item" wx:key="index" id="{{item.id}}" attr_ids="{{item.attr_ids}}">
+            <view class="cart-popup-bs {{item.is_active?'show':'none'}}">
+              <text class="cart-popup-rmb">￥<text class="cart-popup-price">{{item.sale_price}}</text>
+              </text>
+              <view class="cartcontrol f-fr {{item.is_active?'show':'none'}}">
+                <view class="u-cart-ctrl f-fr">
+                  <view class="remove" bindtap="tapReduceCart" hidden="{{item.num==0}}" data-index="{{index}}" data-id="{{sku.id}}" data-name="{{sku.title}}" data-attr_ids="{{item.attr_ids}}">
+                    <text class="u-cart-reduce"></text>
+                  </view>
+                  <text class="u-cart-num" hidden="{{item.num==0}}">{{item.num}}</text>
+                  <view class="add" data-id="{{sku.id}}" data-index="{{index}}" bindtap="tapAddCart" data-name="{{sku.title}}" data-attr_ids="{{item.attr_ids}}">
+                    <text class="u-cart-add"></text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+
+    <!-- 商品详情弹框 -->
+    <view class="cart-detail" hidden="{{!showGoodDetail}}">
+      <view class="mask" bindtap="hideGoodDetail"></view>
+      <block wx:for="{{sku}}" wx:key="" id="{{sku.id}}">
+        <view class="good-detail-modal" style="display: block;">
+          <view class="good-detail-img">
+            <image src="http://oydp172vs.bkt.clouddn.com/wsc_goods/1511764045901_8826.jpg"></image>
+            <text class="good-detail-desc">{{sku.title}}</text>
+          </view>
+          <view class="cart-popup-content">
+            <view class="title">
+              <text class="f-toe">{{sku.title}}</text>
+            </view>
+            <view class="desc">月销
+              <span>{{sku.sold}}</span>份</view>
+          </view>
+          <view class="cart-popup-bs" style="border: 0px;">
+            <span class="cart-popup-rmb">￥
+              <span class="cart-popup-price">{{sku.sku_list[0].sale_price}}</span>
+            </span>
+            <view class="cartcontrol f-fr">
+              <view class="cart-sku" data-id="{{sku.id}}" data-index="{{index}}" bindtap="tapAddCart" data-name="{{sku.title}}" data-attr_ids="{{sku.sku_list[0].attr_ids}}" style="background-color: rgb(23, 159, 244);">加入购物车</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </view>
+  <!-- 评价 -->
+  <view class="goodpage {{tabArr.curBdIndex=='2'? 'show' : 'none'}}">
+    <view class="m-comments-label-list" bindtap="tabFun">
+      <view class="m-comments-label-item  {{commentTitle.curHdIndex=='0'? 'active' : ''}}" data-id="0">全部 </view>
+      <view class="m-comments-label-item {{commentTitle.curHdIndex=='1'? 'active' : ''}}" data-id="1">非常满意</view>
+      <view class="m-comments-label-item {{commentTitle.curHdIndex=='2'? 'active' : ''}}" data-id="2">满意</view>
+      <view class="m-comments-label-item {{commentTitle.curHdIndex=='3'? 'active' : ''}}" data-id="3">不满意</view>
+    </view>
+    <scroll-view class="{{commentTitle.curBdIndex=='0'? 'show' : 'none'}}" bindscrolltoupper='upper'  bindscrolltolower="lower" scroll-y="true" style="height:67% ">
+      <block wx:for="{{commentArr}}" wx:for-item="item" wx:key="id">
+        <view class="m-comments-list">
+          <!-- <view class="m-comments-item g-flex">
+          <view class="comments-item-left">
+            <image src="http://static.waimai.com/mshop/img/avatar.jpg" class="m-comments-logo"></image>
+          </view>
+          <view class="comments-item-right g-flex-item">
+            <view class="m-comments-block f-clearfix">
+              <view class="title">匿名用户</view>
+              <text class="time f-fr">2017-11-30 20:05:16</text>
+            </view>
+            <view class="m-comments-block">
+              <span class="m-comments-shop">商家服务：
+                <text style="color: rgb(249, 103, 104);">
+                  <text class="v-smile" style="background: url('/images/shop/comment/v-smile.png') center center / cover no-repeat;"></text>非常满意</text>
+              </span>
+              <span>商品：
+                <text style="color: rgb(249, 103, 104);">
+                  <text class="v-smile" style="background: url('/images/shop/comment/v-smile.png') center center / cover no-repeat;"></text>非常满意</text>
+              </span>
+            </view>
+          </view>
+        </view> -->
+          <view class="m-comments-item g-flex">
+            <view class="comments-item-left">
+              <image src="{{item.pic}}" class="m-comments-logo"></image>
+            </view>
+            <view class="comments-item-right g-flex-item">
+              <view class="m-comments-block f-clearfix">
+                <view class="title">{{item.name}}</view>
+                <text class="time f-fr">{{item.time_comment}}</text>
+              </view>
+              <view class="m-comments-block">
+                <span class="m-comments-shop">商家服务：
+                  <text style="color: rgb(249, 103, 104);">
+                  <text class="v-smile" style="background: url('/images/shop/comment/v-smile.png') center center / cover no-repeat;"></text>{{item.shop_comment}}</text>
+                </span>
+                <span>商品：
+                  <text style="color: rgb(249, 103, 104);">
+                  <text class="v-smile" style="background: url('/images/shop/comment/v-smile.png') center center / cover no-repeat;"></text>{{item.good_comment}}</text>
+                </span>
+              </view>
+              <view class="photo-list f-clearfix">
+                <block wx:for="{{item.phooto_comment}}" wx:for-item="photo_item" wx:key="id">
+                  <view class="photo-item">
+                    <image src="{{photo_item.pic}}" class="photo-img"></image>
+                  </view>
+                </block>
+              </view>
+              <view class="m-comments-block">
+                <text class="m-comments-good">蓝染真他妈帅-红色：</text>
+                <block wx:for="{{item.comment_tag}}" wx:for-item="tag_item" wx:key="id">
+                  <text>{{tag_item.name}}</text>
+                </block>
+                <text>{{item.comment_text}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:if="{{comment_hasMore}}">
+        <view class="loading-tip">拼命加载中…</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </scroll-view>
+    <scroll-view class="{{commentTitle.curBdIndex=='1'? 'show' : 'none'}}">
+      非常满意
+    </scroll-view>
+    <scroll-view class="{{commentTitle.curBdIndex=='2'? 'show' : 'none'}}">
+      满意
+    </scroll-view>
+    <scroll-view class="{{commentTitle.curBdIndex=='3'? 'show' : 'none'}}">
+      不满意
+    </scroll-view>
+  </view>
+
+</view>
+
+<!-- <import src="../../component/shop/shopPage.wxml" />
+<import src="../component/shop/commentPage.wxml" />  -->
+<!-- <view class="container" disable-scroll="true">
+  <view class="header">
+    <block wx:for="{{swiperTitle}}" wx:key="">
+      <view class="title {{index==currentPage?'selected':''}}" data-index="{{index}}" bindtap="turnPage">{{item.text}}</view>
+    </block>
+  </view>
+  <swiper class="swiper" current="{{currentPage}} 
+  bindchange=" turnTitle ">
+    <swiper-item id="shopPage ">
+      <template is="shopPage " data="{{menu,selected,howMuch,cost,pullBar}} "/>
+    </swiper-item>
+    <swiper-item id="commentPage ">
+      <template is="commentPage " data="{{categoryList}} "/>
+    </swiper-item>
+    <swiper-item id="restaurantPage "></swiper-item>
+  </swiper>
+</view> -->

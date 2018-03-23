@@ -1,0 +1,29 @@
+<template name="order">
+  <block wx:if=" {{showLoading}} ">
+    <view class="loading ">玩命加载中…</view>
+  </block>
+  <block wx:else>
+    <scroll-view bindscrolltolower="lower " class="scroll-restaurants-list " scroll-y="true " style="height:100% ">
+      <block wx:for="{{order}}" wx:key="">
+        <navigator class="m-order-item " url="/pages/order/list/list ">
+          <view class="m-order-header f-clearfix ">
+            <span class="f-fl ">
+              <span class="m-order-good-title ">{{item.name}}</span>
+            </span>
+            <span class="f-fr " style="font-size: .8rem; ">{{item.order_tag}}</span>
+          </view>
+          <view class="m-order-body m-order-money ">¥{{item.price}}</view>
+          <view class="m-order-action u-btn-group f-clearfix ">
+            <navigator class="u-btn f-fr " href=" " hidden="{{item.status ? false : true}} ">再来一单</navigator>
+          </view>
+        </navigator>
+      </block>
+      <block wx:if="{{hasMore}}">
+        <view class="loading-tip">拼命加载中…</view>
+      </block>
+      <block wx:else>
+        <view class="loading-tip">没有更多内容了</view>
+      </block>
+    </scroll-view>
+  </block>
+</template>

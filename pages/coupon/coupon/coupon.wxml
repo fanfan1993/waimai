@@ -1,0 +1,33 @@
+<!--pages/coupon/coupon/coupon.wxml-->
+<view style="height:100%;padding: 20rpx 20rpx; ">
+  <scroll-view bindscrolltolower="lower " class="scroll-restaurants-list " scroll-y="true ">
+    <block wx:for="{{coupon}}" wx:key="">
+      <view class="m-coupon-item">
+        <view class="m-coupon-label m-coupon-label-new" style="background: url('/images/coupon/label-new.png') center center / 100% no-repeat;"></view>
+        <view class="m-coupon-left">
+          <view class="m-coupon-money">
+            <span class="m-coupon-money-symbol">￥</span>{{item.amount}}</view>
+          <view class="f-text-muted f-ellipsis">满{{item.condition_limit}}元可用</view>
+        </view>
+        <view class="m-coupon-middle">
+          <view class="m-coupon-title">{{item.title}}</view>
+          <view class="f-ellipsis">{{item.use_end_time}}到期</view>
+          <view class="f-ellipsis">限手机号为{{item.mobile}}</view>
+        </view>
+        <view class="m-coupon-right">
+          <view class="f-text-danger f-ellipsis">{{item.expire_time_show}}</view>
+          <view class="m-coupon-action">
+            <view class="u-btn u-btn-danger u-btn-outline u-btn-sm u-btn-round" bindtap='toShopIndex'>立即使用</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{hasMore}}">
+      <view class="loading-tip">拼命加载中…</view>
+    </block>
+    <block wx:else>
+      <view class="loading-tip">没有更多内容了</view>
+    </block>
+    <navigator class="m-coupon-more" url="/pages/coupon/history/history">查看历史优惠券</navigator>
+  </scroll-view>
+</view>

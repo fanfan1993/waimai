@@ -1,0 +1,11 @@
+/* pages/coupon/choose/choose.wxss */
+radio{
+transform:scale(1) 
+}
+/* .u-label-radio{
+ border-radius: 50%;
+ display: block;
+ width: 50rpx;
+ height: 50rpx;
+ background: #179ff4;
+} */

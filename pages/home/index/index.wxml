@@ -1,0 +1,17 @@
+<!--pages/home/index/index.wxml-->
+<view class="map_container">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" show-location="true"
+   bindmarkertap="makertap" bindregionchange='controltap'></map>
+</view>
+<view class="map_text">
+  <text class="h1">{{textData.name}}</text>
+  <text>{{textData.desc}}</text>
+  <text>搜索地址</text>
+</view>
+<scroll-view  class="map_list"  scroll-y="true" style="height: 200px;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+
+	<view class="item" bindtap="addressTapped" data-name="{{item.name}}" wx:for="{{markers}}" wx:key="">
+		<text class="title">{{item.name}}</text>
+		<text class="address">{{item.address}}</text>
+	</view>
+</scroll-view>

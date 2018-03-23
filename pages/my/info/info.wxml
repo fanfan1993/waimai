@@ -1,0 +1,27 @@
+<!--pages/my/info/info.wxml-->
+<view class="panel__table__view">
+  <view class="m-list-item has-arrow" catchtap="changeAvatar">
+
+       <span class="m-list-label">头像</span>
+       <image src="{{userInfo.avatarUrl?userInfo.avatarUrl:''}}" />
+      <span class="line"></span>
+  </view>
+
+  <view class="m-list-item has-arrow">
+    <view>
+      <span class="m-list-label">用户名</span>
+      <span id="user-name" bindtap="edit_name" class="m-list-info {{show_Name?'none':'show'}}">{{userInfo.nickName?userInfo.nickName:''}}</span>
+      <input class="m-list-info {{show_Name?'show':'none'}}" bindblur="bindKeyInput" focus="{{focus}}" value="{{userInfo.nickName}}"/>
+    </view>
+      <span class="line"></span>
+  </view>
+
+  <navigator class="m-list-item has-arrow" url="/pages/my/edit_phone/edit_phone" open-type="navigate">
+    <view>
+      <span class="m-list-label">手机</span>
+      <span id="user-phone" class="m-list-info">{{phone?phone:'18358588352'}}</span>
+    </view>
+     <span class="line"></span>
+  </navigator>
+
+</view>

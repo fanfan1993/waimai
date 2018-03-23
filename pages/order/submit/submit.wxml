@@ -1,0 +1,78 @@
+<!--pages/order/submit/submit.wxml-->
+<view class="g-content">
+  <view class="m-order-detail">
+    <navigator class="m-order-address has-arrow" url="/pages/address/choose/choose">
+      <view class="m-head" style=" background: url(/images/order/order-bg.jpg) top center/cover no-repeat;">
+        <view style="margin-bottom: 15rpx; font-size:30rpx;">订单配送到</view>
+        <view style="display: none;">
+          <span class="u-btn u-btn-bright u-btn-outline u-btn-round">添加收货地址</span>
+        </view>
+        <view>
+          <view style="font-size: 33rpx;margin-bottom: 10rpx;">城西银泰城一楼大货厅</view>
+          <view style="font-size: 28rpx;">
+            <span>老街</span>
+            <span>13732252017</span>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <view class="m-order-delivery-time">尽快送达【预计
+      <span>11:23</span>】</view>
+    <view class="m-order-detail-shop" bindtap='jumpShop'>
+      <text>金木</text>
+    </view>
+    <view class="m-order-detail-body">
+      <view class="m-order-block">
+        <span class="f-fl">
+          <span class="m-order-good-title">苹果</span>
+        </span>
+        <span class="f-fr">
+          <span class="m-order-good-num f-text-muted">x
+            <span>3</span>
+          </span>
+          <span class="m-order-good-price"> ￥
+            <span>939.00</span>
+          </span>
+        </span>
+      </view>
+      <view class="m-order-block">
+        <span class="f-fl">餐盒</span>
+        <span class="f-fr">￥
+          <span>96.00</span>
+        </span>
+      </view>
+      <view class="m-order-block">
+        <span class="f-fl">配送费</span>
+        <span class="f-fr">￥
+          <span>0.00</span>
+        </span>
+      </view>
+      <navigator class="m-order-block has-arrow" url="/pages/coupon/choose/choose">
+        <view class="choose_coupon">
+          <text class="f-fl">优惠券</text>
+          <text class="f-fr f-text-danger coupon_text">暂无可用</text>
+        </view>
+      </navigator>
+      <view class="m-order-block f-text-right">
+        小计：
+        <span class="f-text-danger" style="font-size: 0.9rem;">￥
+          <span>1035.00</span>
+        </span>
+      </view>
+    </view>
+    <view class="m-order-detail-body">
+      <view class="m-order-block">
+        <span class="f-fl">订单备注</span>
+        <span class="f-fr">
+          <input placeholder="请输入备注内容（可不填）" class="u-form-control" style="width: 16rem; height: auto; padding: 0px; text-align: right;" />
+        </span>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="g-footer m-order-submit">
+  <span class="f-fl">￥
+    <span>1035.00</span>
+  </span>
+  <button class="u-btn u-btn-primary f-fr" bindtap='gotoPay'>去支付</button>
+</view>

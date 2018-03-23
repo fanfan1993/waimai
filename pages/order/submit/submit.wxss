@@ -1,0 +1,59 @@
+/* pages/order/submit/submit.wxss */
+
+.m-order-address.has-arrow .m-head {
+  display: block;
+  font-size: 26rpx;
+  color: #fff;
+  position: relative;
+  padding: 22rpx;
+}
+
+.m-order-address.has-arrow .m-head:after {
+  font-size: 20rpx;
+  content: " ";
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 4rpx 4rpx 0 0;
+  border-color: #fff;
+  border-style: solid;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 80rpx;
+  right: 44rpx;
+}
+
+/* 送货时间 */
+
+.m-order-delivery-time {
+  padding: 22rpx;
+  margin-bottom: 15rpx;
+  font-size: 26rpx;
+  background-color: #fff;
+}
+.m-order-block.has-arrow .choose_coupon{
+  position: relative;
+  overflow: hidden;
+}
+.m-order-block.has-arrow .choose_coupon:after {
+  font-size: 20rpx;
+  content: " ";
+  height: 16rpx;
+  width: 16rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #475669;
+  border-style: solid;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 10rpx;
+  top:10rpx;
+}
+.m-order-block.has-arrow .coupon_text{
+  margin-right: 32rpx;
+}
+
+.m-order-detail-shop{
+  padding: 20rpx;
+  overflow: hidden;
+  background: #fff;
+  font-size: 32rpx;
+}

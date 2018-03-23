@@ -1,0 +1,32 @@
+<!--pages/coupon/history/history.wxml-->
+<view style="height:100%;padding: 20rpx 20rpx; ">
+<scroll-view bindscrolltolower="lower " class="scroll-restaurants-list " scroll-y="true "  >
+  <block wx:for="{{coupon}}" wx:key="">
+    <view class="m-coupon-item m-coupon-used">
+      <view class="m-coupon-label m-coupon-label-new" style="background: url('/images/coupon/label-new.png') center center / 100% no-repeat;"></view>
+      <view class="m-coupon-left">
+        <view class="m-coupon-money">
+          <span class="m-coupon-money-symbol">￥</span>{{item.amount}}</view>
+        <view class="f-text-muted f-ellipsis">满{{item.condition_limit}}元可用</view>
+      </view>
+      <view class="m-coupon-middle">
+        <view class="m-coupon-title">{{item.title}}</view>
+        <view class="f-ellipsis">{{item.use_end_time}}到期</view>
+        <view class="f-ellipsis">限手机号为{{item.mobile}}</view>
+      </view>
+      <view class="m-coupon-right {{item.status==2 ? 'none' : 'show'}}">
+       <image class="m-coupon-label-used"  style="background: url('/images/coupon/label-timeOut.png') center center / 100% no-repeat;" ></image>
+      </view>
+      <view class="m-coupon-right {{item.status==2 ? 'show' : 'none'}}">
+       <image class="m-coupon-label-used "  style="background: url('/images/coupon/label-used.png') center center / 100% no-repeat;" ></image>
+      </view>
+    </view>
+  </block>
+  <block wx:if="{{hasMore}}">
+    <view class="loading-tip">拼命加载中…</view>
+  </block>
+  <block wx:else>
+    <view class="loading-tip">没有更多内容了</view>
+  </block>
+</scroll-view>
+</view>

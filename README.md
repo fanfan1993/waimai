@@ -3,11 +3,11 @@
 
 微信小程序防外卖点餐，有问题可以联系，一直在；
 
-##参与开发
+## 参与开发
 <br>
 更多项目请关注 https://github.com/fanfan1993
 <br>
-##几张demo图片
+## 几张demo图片
 
 ![](http://pic.caigoubao.cc/599666/1.png)
 <br>
@@ -16,7 +16,7 @@
 ![](http://pic.caigoubao.cc/599666/5.png) 
 
 
-##文件目录
+## 文件目录
 <br>
 >外卖结构
 <br>

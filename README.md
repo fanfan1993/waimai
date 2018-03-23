@@ -5,7 +5,7 @@
 
 ##参与开发
 <br>
-更多项目请关注 https://github.com/fanfan1993。
+更多项目请关注 https://github.com/fanfan1993
 <br>
 ##几张demo图片
 
